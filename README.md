@@ -1,5 +1,9 @@
 # sigfox-map
 
+## TODO
+- Fix hexIEEEtoFloat conversion for negative numbers
+- Display positions in a map
+
 ## Project setup
 ```
 npm install
