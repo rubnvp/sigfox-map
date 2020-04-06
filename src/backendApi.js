@@ -1,20 +1,18 @@
 import axios from 'axios';
 
-const PROXY_URL = 'https://postwoman.apollosoftware.xyz';
+const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
 
 function proxyRequest({method, url, auth, headers = {}}) {
-    return axios
-        .post(PROXY_URL, {
+    return axios.request({
             method,
-            url,
+            url: PROXY_URL + url,
             headers,
             ...auth && {
                 credentials: true,
                 auth,
             },
         })
-        .then(response => response.data) // axios data
-        .then(proxyResponse => proxyResponse.data); // proxy data
+        .then(response => response.data); // axios data
 }
 
 export function fetchSigfoxMessages() {
