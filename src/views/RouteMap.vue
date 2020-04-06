@@ -1,12 +1,13 @@
 <template>
   <div class="route-map">
     <div>
-      <button @click="logout">Logout</button>
+      <button @click="logout">Exit</button>
     </div>
-    <div class="route-map__map-container">
+    <span v-if="loading">Loading...</span>
+    <div v-else class="route-map__map-container">
       <GmapMap
-        :center="{lat: 40.42689, lng: 2.17621e-38}"
-        :zoom="11"
+        :center="markers[0].position"
+        :zoom="16"
         map-type-id="terrain"
         style="width: 100%; height: 100%"
       >

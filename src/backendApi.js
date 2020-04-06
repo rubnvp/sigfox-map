@@ -1,37 +1,31 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// const PROXY_URL = 'https://postwoman.apollosoftware.xyz';
+const PROXY_URL = 'https://postwoman.apollosoftware.xyz';
 
-// function proxyRequest({method, url, auth, headers = {}}) {
-//     return axios
-//         .post(PROXY_URL, {
-//             method,
-//             url,
-//             headers,
-//             ...auth && {
-//                 credentials: true,
-//                 auth,
-//             },
-//         })
-//         .then(response => response.data) // axios data
-//         .then(proxyResponse => proxyResponse.data); // proxy data
-// }
+function proxyRequest({method, url, auth, headers = {}}) {
+    return axios
+        .post(PROXY_URL, {
+            method,
+            url,
+            headers,
+            ...auth && {
+                credentials: true,
+                auth,
+            },
+        })
+        .then(response => response.data) // axios data
+        .then(proxyResponse => proxyResponse.data); // proxy data
+}
 
 export function fetchSigfoxMessages() {
-    return Promise.resolve([
-        {"device":{"id":"24DA67"},"time":1586108048000,"data":"25b52142cecf7ec0","rolloverCounter":0,"seqNumber":237,"rinfos":[{"baseStation":{"id":"07F3"},"delay":1.1319999694824219,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"1FDA"},"delay":1.1740000247955322,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0862"},"delay":1.2170000076293945,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1E63"},"delay":1.2760000228881836,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"28D7"},"delay":1.402999997138977,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"09FC"},"delay":1.4910000562667847,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"080A"},"delay":1.5549999475479126,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"0D2F"},"delay":1.5670000314712524,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"0D4C"},"delay":1.6460000276565552,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"086E"},"delay":1.6859999895095825,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0CAC"},"delay":1.8079999685287476,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"2D28"},"delay":1.8200000524520874,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0775"},"delay":1.8480000495910645,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1EDA"},"delay":1.8869999647140503,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1FAB"},"delay":1.9149999618530273,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"410F"},"delay":1.9559999704360962,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"06C7"},"delay":2.049999952316284,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"2D1F"},"delay":2.069999933242798,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0A00"},"delay":2.121999979019165,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1C55"},"delay":5.168000221252441,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"1EE0"},"delay":5.375,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0CCB"},"delay":5.453999996185303,"lat":"40.0","lng":"-4.0"}],"nbFrames":3,"operator":"SIGFOX_Spain_Cellnex","country":"ESP","computedLocation":[],"lqi":3},
-        {"device":{"id":"24DA67"},"time":1586086098000,"data":"54b5214244cd7ec0","rolloverCounter":0,"seqNumber":236,"rinfos":[{"baseStation":{"id":"2D1F"},"delay":1.1510000228881836,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1FDA"},"delay":1.1859999895095825,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0CCA"},"delay":1.1950000524520874,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1E63"},"delay":1.2170000076293945,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"2D28"},"delay":1.3669999837875366,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0A00"},"delay":1.5520000457763672,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"080A"},"delay":1.5759999752044678,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"09FC"},"delay":1.9079999923706055,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"06C7"},"delay":1.9900000095367432,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"28D7"},"delay":2.0199999809265137,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0CF4"},"delay":1.809999942779541,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"0775"},"delay":1.9880000352859497,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1EE0"},"delay":4.216000080108643,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0D4C"},"delay":2.4070000648498535,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1C55"},"delay":4.906000137329102,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"1C48"},"delay":1.781000018119812,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0862"},"delay":1.0779999494552612,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1EDA"},"delay":1.1069999933242798,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"09B7"},"delay":1.5440000295639038,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"086E"},"delay":1.5759999752044678,"lat":"40.0","lng":"-4.0"}],"nbFrames":3,"operator":"SIGFOX_Spain_Cellnex","country":"ESP","computedLocation":[],"lqi":3},
-        {"device":{"id":"24DA67"},"time":1585908809000,"data":"d6b42142fec77ec0","rolloverCounter":0,"seqNumber":235,"rinfos":[{"baseStation":{"id":"0CCA"},"delay":0.31200000643730164,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0A00"},"delay":1.3359999656677246,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1C48"},"delay":0.40700000524520874,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0775"},"delay":1.4199999570846558,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"09B7"},"delay":1.4550000429153442,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"080A"},"delay":1.4780000448226929,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"06A9"},"delay":1.5019999742507935,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0D2F"},"delay":1.6039999723434448,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"1FDA"},"delay":1.7450000047683716,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1FAB"},"delay":1.8329999446868896,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0D4C"},"delay":1.843000054359436,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"09FC"},"delay":0.9890000224113464,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"06C7"},"delay":2.196000099182129,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"07F3"},"delay":2.2230000495910645,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"2D1F"},"delay":2.2790000438690186,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1E63"},"delay":1.347000002861023,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1C55"},"delay":3.865000009536743,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"28D7"},"delay":2.4030001163482666,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1EE0"},"delay":5.543000221252441,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1EDA"},"delay":2.200000047683716,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0862"},"delay":1.937999963760376,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1E28"},"delay":5.276000022888184,"lat":"41.0","lng":"-4.0"}],"nbFrames":3,"operator":"SIGFOX_Spain_Cellnex","country":"ESP","computedLocation":[],"lqi":3},
-        {"device":{"id":"24DA67"},"time":1585906980000,"data":"ddb4214265c77ec0","rolloverCounter":0,"seqNumber":234,"rinfos":[{"baseStation":{"id":"0D4C"},"delay":1.6549999713897705,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0775"},"delay":0.6729999780654907,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"410F"},"delay":1.684000015258789,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"080A"},"delay":1.7740000486373901,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"09FC"},"delay":1.8009999990463257,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"06C7"},"delay":1.8270000219345093,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1FDA"},"delay":1.8600000143051147,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0A00"},"delay":1.9359999895095825,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0D2F"},"delay":2.0209999084472656,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"07F3"},"delay":1.0260000228881836,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"0CCA"},"delay":2.0299999713897705,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"2D1F"},"delay":2.1640000343322754,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"06A9"},"delay":1.2380000352859497,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"28D7"},"delay":1.284999966621399,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1FAB"},"delay":2.3459999561309814,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1C55"},"delay":5.051000118255615,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"0862"},"delay":1.309000015258789,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1E28"},"delay":5.473999977111816,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"1EDA"},"delay":1.8899999856948853,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1EE0"},"delay":6.236000061035156,"lat":"40.0","lng":"-4.0"}],"nbFrames":3,"operator":"SIGFOX_Spain_Cellnex","country":"ESP","computedLocation":[],"lqi":3},
-        {"device":{"id":"24DA67"},"time":1585905155000,"data":"e5b42142c6cc7ec0","rolloverCounter":0,"seqNumber":233,"rinfos":[{"baseStation":{"id":"0D2F"},"delay":1.9639999866485596,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"1FDA"},"delay":0.996999979019165,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0775"},"delay":1.0609999895095825,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"06A9"},"delay":1.2109999656677246,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0A00"},"delay":1.4259999990463257,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"07F3"},"delay":1.5080000162124634,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"28D7"},"delay":1.5240000486373901,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"06C7"},"delay":1.7730000019073486,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"09FC"},"delay":2.7980000972747803,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"0D4C"},"delay":1.8009999990463257,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"2D1F"},"delay":1.8079999685287476,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1FAB"},"delay":2.869999885559082,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1E28"},"delay":2.9690001010894775,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"0CCA"},"delay":1.9930000305175781,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"086E"},"delay":1.7799999713897705,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"080A"},"delay":1.840000033378601,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"1C55"},"delay":3.871999979019165,"lat":"41.0","lng":"-4.0"},{"baseStation":{"id":"2D28"},"delay":1.062000036239624,"lat":"40.0","lng":"-4.0"},{"baseStation":{"id":"1C48"},"delay":1.3550000190734863,"lat":"40.0","lng":"-4.0"}],"nbFrames":3,"operator":"SIGFOX_Spain_Cellnex","country":"ESP","computedLocation":[],"lqi":3}
-    ]);
-    // return proxyRequest({
-    //     method: 'GET',
-    //     url: 'https://api.sigfox.com/v2/devices/24DA67/messages?limit=5',
-    //     auth: {
-    //       username: localStorage.getItem('username'),
-    //       password: localStorage.getItem('password'),
-    //     },
-    //   })
-    //   .then(sigfoxResponse => sigfoxResponse.data) // sigfox data
+    const deviceId = localStorage.getItem('deviceId');
+    return proxyRequest({
+        method: 'GET',
+        url: `https://api.sigfox.com/v2/devices/${deviceId}/messages?limit=10`,
+        auth: {
+          username: localStorage.getItem('username'),
+          password: localStorage.getItem('password'),
+        },
+      })
+      .then(sigfoxResponse => sigfoxResponse.data) // sigfox data
 }

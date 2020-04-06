@@ -37,5 +37,5 @@ function getEncodedCoord(encodedCoord) {
 
 export const getEncodedCoords = encodedCoordinates => ({
     lat: getEncodedCoord(encodedCoordinates.slice(0,8)),
-    lng: getEncodedCoord(encodedCoordinates.slice(9,16)),
+    lng: getEncodedCoord(encodedCoordinates.slice(8,16)),
 });
