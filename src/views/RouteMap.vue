@@ -8,10 +8,18 @@
     <div v-else class="route-map__map-container">
       <GmapMap
         :center="markers[0].position"
-        :zoom="16"
-        map-type-id="terrain"
+        :zoom="19"
+        map-type-id="hybrid"
         style="width: 100%; height: 100%"
       >
+        <GmapPolyline
+          :path="markersLine"
+          :options="{
+            strokeColor: '#B22222',
+            strokeOpacity: 1,
+            strokeWeight: 2,
+          }"
+        />
         <GmapMarker
           v-for="marker in markers"
           :key="marker.id"
@@ -34,6 +42,13 @@ export default {
     markers: [],
     loading: true,
   }),
+
+  computed: {
+    markersLine() {
+      return this.markers
+        .map(marker => marker.position);
+    }
+  },
 
   methods: {
     logout() {
