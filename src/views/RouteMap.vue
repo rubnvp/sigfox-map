@@ -15,8 +15,9 @@
           v-for="marker in markers"
           :key="marker.id"
           :position="marker.position"
+          :label="marker.id"
           :clickable="true"
-          :draggable="true"
+          @click="showMarkerInfo(marker)"
         />
       </GmapMap>
     </div>
@@ -38,14 +39,18 @@ export default {
       localStorage.clear();
       this.$router.push({ path: 'login' });
     },
+    showMarkerInfo(marker) {
+      window.alert(`Seq Num: ${marker.id}\nDate: ${marker.date}`);
+    },
     fetchPositions() {
       this.loading = true;
       return fetchSigfoxMessages()
         .then(messages => {
           this.markers = messages
-            .map(m => ({id: m.seqNumber, encodedCoordinates: m.data}))
-            .map(({id, encodedCoordinates}) => ({
-              id,
+            .map(m => ({id: m.seqNumber, timestamp: m.time, encodedCoordinates: m.data}))
+            .map(({id, timestamp, encodedCoordinates}) => ({
+              id: `${id}`,
+              date: new Date(timestamp),
               position: getEncodedCoords(encodedCoordinates),
             }));
           this.loading = false;
