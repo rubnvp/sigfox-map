@@ -56,7 +56,12 @@ export default {
       this.$router.push({ path: 'login' });
     },
     showMarkerInfo(marker) {
-      window.alert(`Seq Num: ${marker.id}\nDate: ${marker.date}`);
+      window.alert(
+`Seq Num: ${marker.id}
+Date: ${marker.date}
+Latitude: ${marker.position.lat}
+Longitude: ${marker.position.lng}`
+      );
     },
     fetchPositions() {
       this.loading = true;
