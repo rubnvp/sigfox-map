@@ -1,6 +1,7 @@
 <template>
   <div class="route-map">
     <div>
+      <button @click="fetchPositions">Reload</button>
       <button @click="logout">Exit</button>
     </div>
     <span v-if="loading">Loading...</span>
