@@ -19,7 +19,7 @@ export function fetchSigfoxMessages() {
     const deviceId = localStorage.getItem('deviceId');
     return proxyRequest({
         method: 'GET',
-        url: `https://api.sigfox.com/v2/devices/${deviceId}/messages?limit=10`,
+        url: `https://api.sigfox.com/v2/devices/${deviceId}/messages?limit=30`,
         auth: {
           username: localStorage.getItem('username'),
           password: localStorage.getItem('password'),
